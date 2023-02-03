@@ -37,30 +37,30 @@ __global__ void unique_gid_calculation_2d_2d(int* input) {
 		blockIdx.x, blockIdx.y, threadIdx.x, gid, input[gid]);
 }
 
-int main() {
-	int array_size = 16;
-	int array_byte_size = sizeof(int) * array_size;
-	int h_data[] = { 82, 281, 2, 1, 93, 5, 91, 57, 542, 134, 633, 76, 73, 134, 63, 313};
-
-	for (int i = 0; i < array_size; i++) {
-		printf("%d ", h_data[i]);
-	}
-	printf("\n \n");
-
-	int* d_data;
-	cudaMalloc((void**)&d_data, array_byte_size);
-	cudaMemcpy(d_data, h_data, array_byte_size, cudaMemcpyHostToDevice);
-
-	dim3 block(2, 2);
-	dim3 grid(2, 2);
-
-	//unique_idx_calc_threadIdx << <grid, block >> > (d_data);
-	//unique_gid_calculation << <grid, block >> > (d_data);
-	//unique_gid_calculation_2d << <grid, block >> > (d_data);
-	unique_gid_calculation_2d_2d << <grid, block >> > (d_data);
-	cudaDeviceSynchronize();
-
-	cudaDeviceReset();
-	
-	return 0;
-}
+//int main() {
+//	int array_size = 16;
+//	int array_byte_size = sizeof(int) * array_size;
+//	int h_data[] = { 82, 281, 2, 1, 93, 5, 91, 57, 542, 134, 633, 76, 73, 134, 63, 313};
+//
+//	for (int i = 0; i < array_size; i++) {
+//		printf("%d ", h_data[i]);
+//	}
+//	printf("\n \n");
+//
+//	int* d_data;
+//	cudaMalloc((void**)&d_data, array_byte_size);
+//	cudaMemcpy(d_data, h_data, array_byte_size, cudaMemcpyHostToDevice);
+//
+//	dim3 block(2, 2);
+//	dim3 grid(2, 2);
+//
+//	//unique_idx_calc_threadIdx << <grid, block >> > (d_data);
+//	//unique_gid_calculation << <grid, block >> > (d_data);
+//	//unique_gid_calculation_2d << <grid, block >> > (d_data);
+//	unique_gid_calculation_2d_2d << <grid, block >> > (d_data);
+//	cudaDeviceSynchronize();
+//
+//	cudaDeviceReset();
+//	
+//	return 0;
+//}
