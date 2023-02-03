@@ -8,17 +8,17 @@ __global__ void print_threadIs() {
 		threadIdx.x, threadIdx.y, threadIdx.z);
 }
 
-int main() {
-	int nx, ny;
-	nx = 16, ny = 16;
-
-	dim3 block(8, 8);
-	dim3 grid(nx / block.x, ny / block.y);
-
-	print_threadIs << <grid, block >> > ();
-	cudaThreadSynchronize();
-
-	cudaDeviceReset();
-
-	return 0;
-}
+//int main() {
+//	int nx, ny;
+//	nx = 16, ny = 16;
+//
+//	dim3 block(8, 8);
+//	dim3 grid(nx / block.x, ny / block.y);
+//
+//	print_threadIs << <grid, block >> > ();
+//	cudaThreadSynchronize();
+//
+//	cudaDeviceReset();
+//
+//	return 0;
+//}

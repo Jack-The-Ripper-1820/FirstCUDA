@@ -77,9 +77,12 @@
     </CudaCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <CudaCompile Include="block_org.cu" />
+    <CudaCompile Include="Exercise1.cu" />
     <CudaCompile Include="hello_cuda.cu" />
     <CudaCompile Include="kernel.cu" />
     <CudaCompile Include="thread_org.cu" />
+    <CudaCompile Include="unique_index_calculation_using_threadidx_blockid_blockdim.cu" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
